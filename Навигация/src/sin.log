@@ -1,0 +1,70 @@
+NordWind\compile.bat "D:\Develop\GitHub\simt\Навигация\src\sin"
+
+D:\SimInTech\bin\CodeTemplates\NordWind_Linux_BB>REM Пакетная сборка расчётного модуля для Linux с архитектурой ARM v7  (32bit) и железным FPU  
+
+D:\SimInTech\bin\CodeTemplates\NordWind_Linux_BB>REM Установка путей для компилятора GCC 
+
+D:\SimInTech\bin\CodeTemplates\NordWind_Linux_BB>set path=C:\SysGCC\BeagleDebian\bin 
+
+D:\SimInTech\bin\CodeTemplates\NordWind_Linux_BB>REM Компилируем исполняемый модуль calc.so 
+
+D:\SimInTech\bin\CodeTemplates\NordWind_Linux_BB>del /q calc_lib\arm\*.* 
+
+D:\SimInTech\bin\CodeTemplates\NordWind_Linux_BB>arm-linux-gnueabihf-gcc.exe -shared -o calc_lib\arm\calc.so -s calc_lib\calcmain.c -Wconversion -fpic -fPIC -fpack-struct=1 -mlittle-endian -march=armv7-a -mfpu=vfpv3-d16 -Icommon -lm  
+calc_lib\calcmain.c:21:0: warning: "isfinite" redefined [enabled by default]
+c:\sysgcc\beagledebian\bin\../arm-linux-gnueabihf/sysroot/usr/include/math.h:242:0: note: this is the location of the previous definition
+calc_lib\calcmain.c: In function 'init_calc':
+calc_lib\calcmain.c:380:51: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:387:38: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:390:51: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:390:66: warning: conversion to 'int' from 'unsigned int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:392:38: warning: conversion to 'size_t' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:410:50: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:417:38: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:418:51: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:418:66: warning: conversion to 'int' from 'unsigned int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:421:38: warning: conversion to 'size_t' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:446:60: warning: conversion to 'size_t' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:450:39: warning: conversion to 'size_t' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:471:54: warning: conversion to 'size_t' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:476:37: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:477:37: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:483:56: warning: conversion to 'size_t' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:494:36: warning: conversion to 'int' from 'uint32_t' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:499:42: warning: conversion to 'int' from 'unsigned int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:565:6: warning: passing argument 8 of 'INIT_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:152:15: note: expected 'struct t_state_vars *' but argument is of type 'char *'
+calc_lib\calcmain.c:565:6: warning: passing argument 9 of 'INIT_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:152:15: note: expected 'struct t_consts *' but argument is of type 'char *'
+calc_lib\calcmain.c:565:6: warning: passing argument 10 of 'INIT_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:152:15: note: expected 'struct t_local *' but argument is of type 'char *'
+calc_lib\calcmain.c: In function 'calc':
+calc_lib\calcmain.c:609:8: warning: passing argument 9 of 'STATE_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:207:15: note: expected 'struct t_state_vars *' but argument is of type 'char *'
+calc_lib\calcmain.c:609:8: warning: passing argument 10 of 'STATE_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:207:15: note: expected 'struct t_consts *' but argument is of type 'char *'
+calc_lib\calcmain.c:609:8: warning: passing argument 11 of 'STATE_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:207:15: note: expected 'struct t_local *' but argument is of type 'char *'
+calc_lib\calcmain.c:624:8: warning: passing argument 9 of 'RUN_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:184:15: note: expected 'struct t_state_vars *' but argument is of type 'char *'
+calc_lib\calcmain.c:624:8: warning: passing argument 10 of 'RUN_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:184:15: note: expected 'struct t_consts *' but argument is of type 'char *'
+calc_lib\calcmain.c:624:8: warning: passing argument 11 of 'RUN_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:184:15: note: expected 'struct t_local *' but argument is of type 'char *'
+calc_lib\calcmain.c:654:8: warning: passing argument 9 of 'RUN_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:184:15: note: expected 'struct t_state_vars *' but argument is of type 'char *'
+calc_lib\calcmain.c:654:8: warning: passing argument 10 of 'RUN_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:184:15: note: expected 'struct t_consts *' but argument is of type 'char *'
+calc_lib\calcmain.c:654:8: warning: passing argument 11 of 'RUN_FUNC' from incompatible pointer type [enabled by default]
+calc_lib\calcmain.c:184:15: note: expected 'struct t_local *' but argument is of type 'char *'
+calc_lib\calcmain.c: In function 'connect_to_shmem':
+calc_lib\calcmain.c:724:55: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:740:71: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:757:40: warning: conversion to 'size_t' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:771:42: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+calc_lib\calcmain.c:784:63: warning: conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+
+D:\SimInTech\bin\CodeTemplates\NordWind_Linux_BB>if 0 == 9009 (
+ 
+ start ..\..\..\doc\compilerswarn.htm 
+) 
